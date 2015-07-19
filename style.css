@@ -1,0 +1,17 @@
+.product
+{
+	border: solid 1px black;
+	padding: 10px;
+	margin: 5px;
+	width: 250px;
+}
+
+.price
+{
+	border: solid 1px red;
+	width: 70px;
+	padding: 2px;
+	margin-top: 7px;
+	margin-bottom: 2px;
+	color: red;
+}
