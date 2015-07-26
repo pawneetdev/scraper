@@ -1,6 +1,6 @@
 <?php
 
-function getPriceFromFlipkart($url) {
+function getHTMLcode($url) {
 	
 	$curl = curl_init($url);
 	curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 10.10; labnol;) ctrlq.org");
