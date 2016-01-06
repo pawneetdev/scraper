@@ -7,18 +7,12 @@
 //INCLUDED FILES
 include_once "amazon.php";
 include_once "flipkart.php";
-include_once "jabong.php";
 
 echo "<center>";
 include "search.htm";
 echo "</center>";
 
 //INITIALIZED ARRAYS FOR DATA, TITLE, IMAGE AND PRICE
-$jabong_data = Array();
-$jabong_title = Array();
-$jabong_img= Array();
-$jabong_price = Array();
-
 
 $amazon_data = Array();
 $amazon_title = Array();
@@ -36,40 +30,8 @@ if(!isset($_GET['search']))
 
 //CALLED FUNCTIONS THAT FETCH HTML CODE FROM RESPECTIVE SITES.
 $flipkart_data = flipkart($_GET["search"]);
-$jabong_data = jabong($_GET['search']);
 $amazon_data = amazon($_GET['search']);
 
-//STORING DATA IN VARIABLES FOR JABONG
-$j=0;
-
-foreach ($jabong_data[0] as $x)
-{
-    $jabong_title[$j] = $x;
-    $j++;
-    if($j>19)
-		break;
-}
-
-$j=0;
-
-foreach ($jabong_data[1] as $x)
-{
-    $jabong_img[$j] = $x;
-    $j++;
-    if($j>19)
-		break;
-}
-
-
-$j=0;
-
-foreach ($jabong_data[2] as $x)
-{
-    $jabong_price[$j] = $x;
-    $j++;
-    if($j>19)
-		break;
-}
 
 
 //STORING DATA IN VARIABLES FOR AMAZON
@@ -148,11 +110,14 @@ $a = ['json', 'xml'];
 foreach($a as $x)
 {
 echo "<form action = '$x.php' method = 'POST' target = '_blank'>";
-for($i=0; $i<20; $i++)
+//for($i=0; $i<20; $i++)
+$i=0;
+foreach ($flipkart_title as $title)
 {
 	echo "<input type = 'hidden' name = 'title[]' value = '$flipkart_title[$i]'>";
 	echo "<input type = 'hidden' name = 'price[]' value = '$flipkart_price[$i]'>";
 	echo "<input type = 'hidden' name = 'image[]' value = '$flipkart_img[$i]'>";
+    $i++;
 }
 echo "<input type = 'submit' value = 'Download $x'>
 </form>";
@@ -183,41 +148,9 @@ foreach($a as $x)
 echo "<form action = '$x.php' method = 'POST' target = '_blank'>";
 for($i=0; $i<20; $i++)
 {
-	echo "<input type = 'hidden' name = 'title[]' value = '$jabong_title[$i]'>";
-	echo "<input type = 'hidden' name = 'price[]' value = '$jabong_price[$i]'>";
-	echo "<input type = 'hidden' name = 'image[]' value = '$jabong_img[$i]'>";
-}
-echo "<input type = 'submit' value = 'Download $x'>
-</form>";
-}
-
-echo "</center></div>";
-
-//DISPLAYING RESULTS FOR JABONG
-$j=0;
-
-echo "<div class = 'main_div' style = 'float: right; margin-right: 100px'><center>";
-echo "JABONG";
-foreach($jabong_title as $x)
-{
-    echo "<div class = 'product'>";
-    echo "<img src ='".@$jabong_img[$j]."' style = 'width: 120px; height: 200px;'><br>";
-    echo @$x."<br>";
-    echo "<div class = 'price'>".@$jabong_price[$j]."</div>";
-    echo "</div>";
-    $j++;
-}
-
-$a = ['json', 'xml'];
-
-foreach($a as $x)
-{
-echo "<form action = '$x.php' method = 'POST' target = '_blank'>";
-for($i=0; $i<20; $i++)
-{
-	echo "<input type = 'hidden' name = 'title[]' value = '$jabong_title[$i]'>";
-	echo "<input type = 'hidden' name = 'price[]' value = '$jabong_price[$i]'>";
-	echo "<input type = 'hidden' name = 'image[]' value = '$jabong_img[$i]'>";
+	echo "<input type = 'hidden' name = 'title[]' value = '$amazon_title[$i]'>";
+	echo "<input type = 'hidden' name = 'price[]' value = '$amazon_price[$i]'>";
+	echo "<input type = 'hidden' name = 'image[]' value = '$amazon_img[$i]'>";
 }
 echo "<input type = 'submit' value = 'Download $x'>
 </form>";

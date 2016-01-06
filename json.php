@@ -12,7 +12,7 @@ echo '{"products":[<br>';
 foreach($title as $a)
 {
 	echo '{"title":"'.$title[$i].'", "price":"'.$price[$i].'", "image":"'.$image[$i].'"}';
-	if($title[$i+1])
+	if(@$title[$i+1])
 		echo ',<br>';
 	$i++;
 }
