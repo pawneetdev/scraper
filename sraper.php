@@ -32,8 +32,6 @@ if(!isset($_GET['search']))
 $flipkart_data = flipkart($_GET["search"]);
 $amazon_data = amazon($_GET['search']);
 
-
-
 //STORING DATA IN VARIABLES FOR AMAZON
 $j=0;
 
