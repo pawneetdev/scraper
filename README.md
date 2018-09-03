@@ -10,3 +10,5 @@ Now, run your local server and open http://localhost/scraper/display.php in your
 search for items you want to fetch like "mobile".
 
 You can download JSON and XML by clicking on the buttons provided.
+
+Note to self: [Trademark](https://www.quickcompany.in/trademark) data also scraped using this framework.
