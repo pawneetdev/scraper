@@ -6,7 +6,7 @@ educational purpose.
 
 Clone the repository in your html folder if you are using apache. If you are using XAMPP, clone it in your htdocs directory.
 
-Now, run your local server and open http://localhost/scraper/display.php in your browser. You will see a search bar,
+Now, run your local server and open http://localhost/scraper/search.htm in your browser. You will see a search bar,
 search for items you want to fetch like "mobile".
 
 You can download JSON and XML by clicking on the buttons provided.
